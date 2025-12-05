@@ -311,7 +311,7 @@ if __name__ == "__main__":
     compare_predictions(y_test, predictions)
     # Step 8: Make a new prediction
     # TODO: Call make_prediction() for a house of your choice
-    make_prediction(model, 1500, 3, 2, 10)  # 45k miles, 3 years, Toyota
+    make_prediction(model, 1500, 3, 2, 10) 
     
     print("\n" + "=" * 70)
     print("✓ Example complete! Check out the saved plots.")
