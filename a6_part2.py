@@ -310,11 +310,11 @@ if __name__ == "__main__":
     # TODO: Call compare_predictions() showing first 10 examples
     compare_predictions(y_test, predictions, num_examples=10)
     # Step 8: Make a new prediction
-    # TODO: Call make_prediction() for a house of your choice
+    # TODO: Call make_prediction() for a house of your choice.
     make_prediction(model, 1500, 3, 2, 10) 
     
     print("\n" + "=" * 70)
     print("✓ Example complete! Check out the saved plots.")
     print("=" * 70)
     print("Don't forget to complete a6_part2_writeup.md!")
-    print("=" * 70)
+    print("=" * 70) 
