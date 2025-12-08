@@ -4,15 +4,15 @@
 
 ## Question 1: Feature Importance
 
-Based on your house price model, rank the four features from most important to least important. Explain how you determined this ranking.
+Based on your house price model, rank the four features from most important to least important. Explain how you determined this ranking.  
 
 **YOUR ANSWER:**
-1. Most Important: Square Feet
-2. Bedrooms
-3. Bathrooms
-4. Least Important:Age 
+1. Most Important:Bedrooms(6648.97) 
+2. Bathrooms(3858.90)
+3. Square Feet(121.11)
+4. Least Important:Age(-950.35) 
 
-**Explanation:** I ordered the features by their absolute size of their coefficients. Then realized SqaureFeet had the largest coefficient, while Age had the smallest.
+**Explanation:** I ordered the features by their absolute size of their coefficients. Then realized Bedrooms(6648.97) had the largest coefficient, while Age(-950.35) had the smallest.
 
 
 
@@ -22,10 +22,10 @@ Based on your house price model, rank the four features from most important to l
 
 Choose TWO features from your model and explain what their coefficients mean in plain English. For example: "Each additional bedroom increases the price by $___"
 
-**Feature 1:** SqaureFeet; every new square foot increases the preicted price by $(? coefficent)
+**Feature 1:** SquareFeet; every new square foot increases the preicted price by $(121.11)
 
 
-**Feature 2:** Age; every new year of age decreases the predicted price by $(? coefficent)
+**Feature 2:** Age; every new year of age decreases the predicted price by $(-950.35)
 
 
 ---
