@@ -55,10 +55,10 @@ def visualize_features(data):
     #       - scatter plot, color='blue', alpha=0.6
     #       - labels and title
     #       - grid
-    axes[0, 0].scatter(data['SqaureFeet'], data['Price'], color='blue', alpha=0.6)
-    axes[0, 0].set_xlabel('SqaureFeet(ft^2)')
+    axes[0, 0].scatter(data['SquareFeet'], data['Price'], color='blue', alpha=0.6)
+    axes[0, 0].set_xlabel('SquareFeet(ft^2)')
     axes[0, 0].set_ylabel('Price ($)')
-    axes[0, 0].set_title('SqaureFeet vs Price')
+    axes[0, 0].set_title('SquareFeet vs Price')
     axes[0, 0].grid(True, alpha=0.6)
     
     # TODO: Plot 2 (top right): Bedrooms vs Price
@@ -75,28 +75,28 @@ def visualize_features(data):
     #       - scatter plot, color='red', alpha=0.6
     #       - labels and title
     #       - grid
-    axes[0, 1].scatter(data['Bathroom'], data['Price'], color='red', alpha=0.6)
-    axes[0, 1].set_xlabel('Bathroom (#)')
-    axes[0, 1].set_ylabel('Price ($)')
-    axes[0, 1].set_title('Bathroom vs Price')
-    axes[0, 1].grid(True, alpha=0.6)
+    axes[1, 0].scatter(data['Bathrooms'], data['Price'], color='red', alpha=0.6)
+    axes[1, 0].set_xlabel('Bathrooms (#)')
+    axes[1, 0].set_ylabel('Price ($)')
+    axes[1, 0].set_title('Bathrooms vs Price')
+    axes[1, 0].grid(True, alpha=0.6)
     
     # TODO: Plot 4 (bottom right): Age vs Price
     #       - scatter plot, color='orange', alpha=0.6
     #       - labels and title
     #       - grid
-    axes[1, 0].scatter(data['Age'], data['Price'], color='orange', alpha=0.6)
-    axes[1, 0].set_xlabel('Age (yrs)')
-    axes[1, 0].set_ylabel('Price ($)')
-    axes[1, 0].set_title('Age vs Price')
-    axes[1, 0].grid(True, alpha=0.6)
+    axes[1, 1].scatter(data['Age'], data['Price'], color='orange', alpha=0.6)
+    axes[1, 1].set_xlabel('Age (yrs)')
+    axes[1, 1].set_ylabel('Price ($)')
+    axes[1, 1].set_title('Age vs Price')
+    axes[1, 1].grid(True, alpha=0.6)
     
     # TODO: Use plt.tight_layout() to make plots fit nicely
     plt.tight_layout()
     # TODO: Save the figure as 'feature_plots.png' with dpi=300
-    plt.savefig('car_features.png', dpi=300, bbox_inches='tight')
+    plt.savefig('feature_plot.png', dpi=300, bbox_inches='tight')
     # TODO: Show the plot
-    print("\n✓ Feature plots saved as 'car_features.png'")
+    print("\n✓ Feature plots saved as 'feature_plots.png'")
     plt.show()
 
 
@@ -113,7 +113,7 @@ def prepare_features(data):
     """
     # TODO: Create a list of feature column names
     #       ['SquareFeet', 'Bedrooms', 'Bathrooms', 'Age']
-    feature_columns = ['Bedrooms', 'Bathrooms', 'Age']
+    feature_columns = ['SquareFeet', 'Bedrooms', 'Bathrooms', 'Age']
     # TODO: Create X by selecting those columns from data
     X = data[feature_columns]
     # TODO: Create y by selecting the 'Price' column
@@ -271,13 +271,13 @@ def make_prediction(model, sqft, bedrooms, bathrooms, age):
     """
     # TODO: Create a DataFrame with the house features
     #       columns should be: ['SquareFeet', 'Bedrooms', 'Bathrooms', 'Age']
-    car_features = pd.DataFrame([[sqft, bedrooms, bathrooms, age ]], 
-                                 columns=['SqaureFeet', 'Bedrooms', 'Bathroom', 'Age'])
+    house_features = pd.DataFrame([[sqft, bedrooms, bathrooms, age ]], 
+                                 columns=['SquareFeet', 'Bedrooms', 'Bathroom', 'Age'])
     # TODO: Make a prediction using model.predict()
-    predicted_price = model.predict(car_features)[0]
+    predicted_price = model.predict(house_features)[0]
     # TODO: Print the house specs and predicted price nicely formatted
     print(f"\n=== New Prediction ===")
-    print(f"house specs: {sqft:.0f}ft^2, {bedrooms} #, {bathrooms} #, {age} #,")
+    print(f"house specs: {sqft}ft^2, {bedrooms} bedrooms, {bathrooms} bathroom, {age} years old")
     print(f"Predicted price: ${predicted_price:,.2f}")
     # TODO: Return the predicted price
     return predicted_price
@@ -308,7 +308,7 @@ if __name__ == "__main__":
     predictions = evaluate_model(model, X_test, y_test, X.columns)
     # Step 7: Compare predictions
     # TODO: Call compare_predictions() showing first 10 examples
-    compare_predictions(y_test, predictions)
+    compare_predictions(y_test, predictions, num_examples=10)
     # Step 8: Make a new prediction
     # TODO: Call make_prediction() for a house of your choice
     make_prediction(model, 1500, 3, 2, 10) 
@@ -316,8 +316,5 @@ if __name__ == "__main__":
     print("\n" + "=" * 70)
     print("✓ Example complete! Check out the saved plots.")
     print("=" * 70)
-    print("\n" + "=" * 70)
-    print("✓ Assignment complete! Check your saved plots.")
-
     print("Don't forget to complete a6_part2_writeup.md!")
     print("=" * 70)

@@ -34,7 +34,7 @@ Choose TWO features from your model and explain what their coefficients mean in 
 
 What was your model's R² score? What does this tell you about how well your model predicts house prices? Is there room for improvement?
 
-**YOUR ANSWER:** 
+**YOUR ANSWER:** My model's R^2 score is 0.9936. This tell me that my model explains 99.36% of the different various house prices. There is room for improvement due to the fact that the dataset is not that large and the dataset is missing vaulable features like location and lot size. 
 
 
 
@@ -45,16 +45,16 @@ What was your model's R² score? What does this tell you about how well your mod
 
 If you could add TWO more features to improve your house price predictions, what would they be and why?
 
-**Feature 1:**
+**Feature 1:** Location(neighborhood/zip code)
 
 
-**Why it would help:**
+**Why it would help:** House location is the biggest determination in price level. For example it cost more to live downtown than in a suburb. 
 
 
-**Feature 2:**
+**Feature 2:**Lot Size
 
 
-**Why it would help:**
+**Why it would help:** The lot size is important because if the houses are the same size, the next determination of price would be the area/land size that it sits on. 
 
 
 ---
@@ -64,5 +64,5 @@ If you could add TWO more features to improve your house price predictions, what
 Would you trust this model to predict the price of a house with 6 bedrooms, 4 bathrooms, 3000 sq ft, and 5 years old? Why or why not? (Hint: Think about the range of your training data)
 
 **YOUR ANSWER:**
-
+I would not trust this model 100% to predict the price of a house with 6 bedrooms, 4 bathrooms, 3000 sq ft, and 5 years old because these features are outside of the training data range. Therefore, the model's predict will be less accurate because its prediction with be extrapolation. 
 
